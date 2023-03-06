@@ -12,12 +12,5 @@ node('built-in')
 	{
 		cicd.newDeployment("MultibranchPipeline","172.31.31.218","testApp")
 	}
-	stage('ContinuousTesting')
-	{
-		cicd.Testing("MultibranchPipeline")
-	}
-	stage('continuousDelivery')
-	{
-		cicd.newDeployment("MultibranchPipeline","172.31.19.81","prodApp")
-	}
+	
 }
