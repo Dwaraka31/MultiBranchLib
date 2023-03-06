@@ -3,7 +3,7 @@ node('built-in')
 {
 	stage('continuousDownload')
 	{
-		cicd.newGit("https://github.com/intelliqittrainings/maven")
+		cicd.newGit("https://github.com/intelliqittrainings/maven.git")
 	}
 	stage('ContinuousBuild')
 	{
@@ -15,6 +15,7 @@ node('built-in')
 	}
 	stage('ContinuousTesting')
 	{
+		cicd.newGit("https://github.com/intelliqittrainings/FunctionalTesting.git")
 		cicd.Testing("MultibranchPipeline_main")
 	}
 	stage('continuousDelivery')
