@@ -1,0 +1,23 @@
+node('built-in')
+{
+	stage('continuousDownload')
+	{
+		cicd.newGit("https://github.com/intelliqittrainings/maven")
+	}
+	stage('ContinuousBuild')
+	{
+		cicd.newBuild()
+	}
+	stage('ContinuousDeplyoment')
+	{
+		cicd.newDeployment("MultibranchPipeline","172.31.31.218","testApp")
+	}
+	stage('ContinuousTesting')
+	{
+		cicd.Testing("MultibranchPipeline")
+	}
+	stage('continuousDelivery')
+	{
+		cicd.newDeployment("MultibranchPipeline","172.31.19.81","prodApp")
+	}
+}
