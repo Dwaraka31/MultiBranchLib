@@ -1,3 +1,4 @@
+@Library('mylib')_
 node('built-in')
 {
 	stage('continuousDownload')
