@@ -11,14 +11,14 @@ node('built-in')
 	}
 	stage('ContinuousDeplyoment')
 	{
-		cicd.newDeployment("MultibranchPipeline","172.31.31.218","testApp")
+		cicd.newDeployment("MultibranchPipeline_main","172.31.31.218","testApp")
 	}
 	stage('ContinuousTesting')
 	{
-		cicd.Testing("MultibranchPipeline")
+		cicd.Testing("MultibranchPipeline_main")
 	}
 	stage('continuousDelivery')
 	{
-		cicd.newDeployment("MultibranchPipeline","172.31.19.81","prodApp")
+		cicd.newDeployment("MultibranchPipeline_main","172.31.19.81","prodApp")
 	}
 }
